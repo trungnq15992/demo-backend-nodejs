@@ -45,27 +45,36 @@
         <a class="active" href="/">Home</a>
         <a href="/create">Create User</a>
     </div> 
-    <div class="table-container">
+    <div class="table-container">        
         <div class="title">List Users</div>    
         <table id="customers">
             <tr>
-                <th>ID</th>
+                <th>ID - Index</th>
                 <th>Email</th>
                 <th>Name</th>
                 <th>City</th>
+                <th>Action</th>
             </tr> 
-            <tr>
-                <td>North/South</td>
-                <td>Simon Crowther</td>
-                <td>UK</td>
-                <td>UK</td>
-            </tr>
-            <tr>
-                <td>Paris spécialités</td>
-                <td>Marie Bertrand</td>
-                <td>France</td>
-                <td>UK</td>
-            </tr>
+            <% listUsers.forEach(function(user, index) { %>
+                <tr>
+                    <td>
+                        <%= user.id %> - <%= index %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.city %>
+                    </td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            <% }); %>
         </table>
     </div>
 </body>
