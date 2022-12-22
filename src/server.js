@@ -9,13 +9,18 @@ const app = express();
 const port = process.env.PORT || 8888;
 const hostname = process.env.HOST_NAME;
 
+//config req.body (get data form add user)
+app.use(express.json( )); // Used to parse JSON bodies
+app.use(express.urlencoded( )); //Parse URL-encoded bodies
+
 //console.log("check log : ", process.env)
 
 //config template engine
 configViewEngine(app);
 
 //route
-app.use('/v1' ,webRouters);
+//app.use('/v1' ,webRouters);
+app.use('' ,webRouters);
 
 // simple query
 // connection.query(
