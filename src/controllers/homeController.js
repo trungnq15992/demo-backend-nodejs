@@ -20,24 +20,37 @@ const getABC = (req,res) => {
     res.send('ABC')
 }
 
-const postCreateUser = (req,res) => {    
+const postCreateUser = async (req,res) => {    
     let email = req.body.emailId;
     let name = req.body.myname;
     let city = req.body.city;
 
     console.log(">>> email:", email, 'name =',  name, 'city=' ,city);
 
-    connection.query(
+    // connection.query(
+    //     ` INSERT INTO Users (email,name,city) 
+    //     VALUES (?, ?, ?) `,
+    //     [email, name, city],
+    //     function(err, results) {
+    //         console.log(results);
+    //         res.send('success')
+    //     }
+    // ); 
+    let [results, fields] = await connection.query(
         ` INSERT INTO Users (email,name,city) 
         VALUES (?, ?, ?) `,
-        [email, name, city],
-        function(err, results) {
-            console.log(results);
-            res.send('success')
-        }
+        [email, name, city]
     );
+
+   // const [results, fields] = await connection.query('SELECT * FROM Users u');
+    console.log(">>results ", results);
+    res.send('success')
+}
+
+const getCreatePage = (req, res) => {
+    res.render('create.ejs')
 }
 
 module.exports = {
-    getHomepage, getABC, postCreateUser
+    getHomepage, getABC, postCreateUser, getCreatePage
 }
