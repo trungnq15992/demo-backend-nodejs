@@ -1,7 +1,7 @@
 const connection = require('../config/database');
-const { getAllUsers } = require('../services/CRUDService');
+const { getAllUsers, getUserById, updateUserById } = require('../services/CRUDService');
 
-const getHomepage = async (req,res) => {
+const getHomepage = async (req, res) => {
     // simple query
     // let users = [];
     // connection.query(
@@ -15,19 +15,19 @@ const getHomepage = async (req,res) => {
     //     }
     // );     
     let results = await getAllUsers();
-    return res.render('home.ejs', {listUsers: results})
+    return res.render('home.ejs', { listUsers: results })
 }
 
-const getABC = (req,res) => {
+const getABC = (req, res) => {
     res.send('ABC')
 }
 
-const postCreateUser = async (req,res) => {    
+const postCreateUser = async (req, res) => {
     let email = req.body.emailId;
     let name = req.body.myname;
     let city = req.body.city;
 
-    console.log(">>> email:", email, 'name =',  name, 'city=' ,city);
+    console.log(">>> email:", email, 'name =', name, 'city=', city);
 
     // connection.query(
     //     ` INSERT INTO Users (email,name,city) 
@@ -44,7 +44,7 @@ const postCreateUser = async (req,res) => {
         [email, name, city]
     );
 
-   // const [results, fields] = await connection.query('SELECT * FROM Users u');
+    // const [results, fields] = await connection.query('SELECT * FROM Users u');
     console.log(">>results ", results);
     res.send('success')
 }
@@ -55,12 +55,20 @@ const getCreatePage = (req, res) => {
 
 const getUpdatePage = async (req, res) => {
     const userId = req.params.id;
-    const [results, fields] = await connection.query('SELECT * FROM Users WHERE id = ?', [userId]);
-    console.log("get UserId", results);
-    res.render('edit.ejs')
+    let user = await getUserById(userId);
+    res.render('edit.ejs', { userEdit: user })
 }
 
+const postUpdateUser = async (req, res) => {
+    let email = req.body.emailId;
+    let name = req.body.myname;
+    let city = req.body.city;
+    let userId = req.body.userId;
+    await updateUserById(email, name, city, userId);
+    //res.send('Update success')
+    res.redirect('/');
+}
 
 module.exports = {
-    getHomepage, getABC, postCreateUser, getCreatePage, getUpdatePage
+    getHomepage, getABC, postCreateUser, getCreatePage, getUpdatePage, postUpdateUser
 }
