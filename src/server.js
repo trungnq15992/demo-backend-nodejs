@@ -23,9 +23,16 @@ configViewEngine(app);
 app.use('', webRouters);
 
 //test connection
-connection();
+(async () => {
+    try {
+        await connection();
+        app.listen(port, () => {
+            console.log(`Backend_NodeJS app listening on port ${port}`)
+        })
+    } catch (error) {
+        console.log(">>> Error connect to DB", error);
+    }
+})()
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+
 
