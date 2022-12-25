@@ -10,8 +10,8 @@ const port = process.env.PORT || 8888;
 const hostname = process.env.HOST_NAME;
 
 //config req.body (get data form add user)
-app.use(express.json( )); // Used to parse JSON bodies
-app.use(express.urlencoded( )); //Parse URL-encoded bodies
+app.use(express.json()); // Used to parse JSON bodies
+app.use(express.urlencoded()); //Parse URL-encoded bodies
 
 //console.log("check log : ", process.env)
 
@@ -20,15 +20,10 @@ configViewEngine(app);
 
 //route
 //app.use('/v1' ,webRouters);
-app.use('' ,webRouters);
+app.use('', webRouters);
 
-// simple query
-// connection.query(
-//     'SELECT * FROM Users u',
-//     function(err, results, fields) {
-//       console.log(">>>results= ", results); // results contains rows returned by server
-//     }
-// );
+//test connection
+connection();
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
