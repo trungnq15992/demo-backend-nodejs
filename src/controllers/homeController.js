@@ -1,25 +1,10 @@
 const connection = require('../config/database');
 const { getAllUsers, getUserById, updateUserById, deleteUserById } = require('../services/CRUDService');
+const User = require('../models/user');
 
 const getHomepage = async (req, res) => {
-    // simple query
-    // let users = [];
-    // connection.query(
-    //     'SELECT * FROM Users u',
-    //     function(err, results, fields) {
-    //         users = results;
-    //         console.log(">>>results= ", results); // results contains rows returned by server
-    //         //res.render('sample.ejs')
-    //         console.log(">>users= ",users);
-    //         res.send(JSON.stringify(users))
-    //     }
-    // );     
-    let results = await getAllUsers();
+    let results = await User.find({});
     return res.render('home.ejs', { listUsers: results })
-}
-
-const getABC = (req, res) => {
-    res.send('ABC')
 }
 
 const postCreateUser = async (req, res) => {
@@ -27,26 +12,12 @@ const postCreateUser = async (req, res) => {
     let name = req.body.myname;
     let city = req.body.city;
 
-    console.log(">>> email:", email, 'name =', name, 'city=', city);
-
-    // connection.query(
-    //     ` INSERT INTO Users (email,name,city) 
-    //     VALUES (?, ?, ?) `,
-    //     [email, name, city],
-    //     function(err, results) {
-    //         console.log(results);
-    //         res.send('success')
-    //     }
-    // ); 
-    let [results, fields] = await connection.query(
-        ` INSERT INTO Users (email,name,city) 
-        VALUES (?, ?, ?) `,
-        [email, name, city]
-    );
-
-    // const [results, fields] = await connection.query('SELECT * FROM Users u');
-    console.log(">>results ", results);
-    res.send('success')
+    await User.create({
+        email: email,
+        name: name,
+        city: city
+    })
+    res.send('create success');
 }
 
 const getCreatePage = (req, res) => {
@@ -82,5 +53,5 @@ const postHandleRemoveUser = async (req, res) => {
 }
 
 module.exports = {
-    getHomepage, getABC, postCreateUser, getCreatePage, getUpdatePage, postUpdateUser, postDeleteUser, postHandleRemoveUser
+    getHomepage, postCreateUser, getCreatePage, getUpdatePage, postUpdateUser, postDeleteUser, postHandleRemoveUser
 }
