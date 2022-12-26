@@ -36,9 +36,8 @@ const postUpdateUser = async (req, res) => {
     let name = req.body.myname;
     let city = req.body.city;
     let userId = req.body.userId;
-    //await updateUserById(email, name, city, userId);
-    await User.updateOne({ _id: userId}, {city: city, email: email, name: name});
-    //res.send('Update success')
+    await User.updateOne({ _id: userId }, { city: city, email: email, name: name });
+
     res.redirect('/');
 }
 

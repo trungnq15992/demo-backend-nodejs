@@ -24,6 +24,30 @@ const postCreateUserAPI = async (req, res) => {
     })
 }
 
+const putUpdateUserAPI = async (req, res) => {
+    let email = req.body.emailId;
+    let name = req.body.myname;
+    let city = req.body.city;
+    let userId = req.body.userId;
+    let user = await User.updateOne({ _id: userId }, { city: city, email: email, name: name });
+
+    return res.status(200).json({
+        errorCode: 0,
+        data: user
+    })
+}
+
+const deleteUserAPI = async (req, res) => {
+    const id = req.body.userId;
+    let user = await User.deleteOne({
+        _id: id
+    });
+    return res.status(200).json({
+        errorCode: 0,
+        data: user
+    })
+}
+
 module.exports = {
-    getUsersAPI, postCreateUserAPI
+    getUsersAPI, postCreateUserAPI, putUpdateUserAPI, deleteUserAPI
 }
