@@ -3,7 +3,8 @@ const {
     createCustomerService, 
     createArrayCustomerService, 
     getCustomersAPI, 
-    updateCustomerAPI
+    updateCustomerAPI,
+    deleteCustomerAPI
 } = require('../services/customerService');
 
 module.exports = {
@@ -63,6 +64,13 @@ module.exports = {
             errorCode: 0,
             data: result
         })     
+    },
+    deleteACustomerAPI: async (req, res) => {
+        let {id} = req.body;
+        let result = await deleteCustomerAPI(id);       
+        return res.status(200).json({
+            errorCode: 0,
+            data: result
+        })     
     }
-
 }
