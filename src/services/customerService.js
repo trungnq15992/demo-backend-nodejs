@@ -67,8 +67,8 @@ const deleteCustomerAPI = async (id) => {
 const deleteArrayCustomerAPI = async (arrayIds) => {
     try {
         let result = await Customer.delete({_id: {$in: arrayIds}});
-        console.log(">>>arrayIds ", arrayIds);
-        console.log(">>>result ", result);
+        //console.log(">>>arrayIds ", arrayIds);
+        //console.log(">>>result ", result);
         return result;
     } catch (error) {
         console.log("error >>", error);
