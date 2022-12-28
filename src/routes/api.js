@@ -5,7 +5,12 @@ const routerAPI = express.Router();
 const { getUsersAPI, postCreateUserAPI, putUpdateUserAPI, deleteUserAPI, 
     postUploadSingleFileApi, postUploadMultipleFilesApi } = require('../controllers/apiControllers');
 
-const {postCreateCustomer, postCreateArrayCustomer, getCustomersAPI} = require('../controllers/customerControllers');
+const {
+    postCreateCustomer, 
+    postCreateArrayCustomer, 
+    getCustomersAPI, 
+    putUpdateCustomerAPI
+} = require('../controllers/customerControllers');
 
 routerAPI.get('/', (req, res) => {
     res.send("Hello World")
@@ -27,5 +32,7 @@ routerAPI.post('/customers', postCreateCustomer);
 routerAPI.post('/customers-many', postCreateArrayCustomer);
 
 routerAPI.get('/customers', getCustomersAPI);
+
+routerAPI.put('/customers', putUpdateCustomerAPI);
 
 module.exports = routerAPI;
