@@ -1,10 +1,12 @@
 # udemy-backend-nodejs
-Udemy tutorial Backend NodeJS 
+
+Udemy tutorial Backend NodeJS
+
 - git clone https://github.com/trungnq15992/udemy-backend-nodejs.git
 - git checkout master
 - git pull origin master
 
-Cài đặt nodejs 
+Cài đặt nodejs
 Download version v14.17.0 (recommend) : https://nodejs.org/download/release/v14.17.0/
 Kiểm tra kết quả bằng cách sử dụng câu lệnh:
 node -v
@@ -17,3 +19,15 @@ Thay port nếu bị trùng trong file .evn
 
 Run project
 npm run start
+
+mongod --version
+
+MongoDB : create user and password
+use admin
+db.createUser(
+{
+user: "root1",
+pwd: "root1", // or cleartext password
+roles: []
+}
+)
