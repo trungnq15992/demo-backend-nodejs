@@ -44,9 +44,9 @@ app.use('/v1/api/', apiRouters);
         await client.connect();
         console.log('Connected successfully to server');
 
-        //const db = client.db(dbName);
-        //onst collection = db.collection('customers');
-        //collection.insertOne({ "name": "quoc" });
+        // const db = client.db(dbName);
+        // const collection = db.collection('customers');
+        // collection.insertOne({ "name": "trung" });
         //console.log(">>find:", await collection.findOne({ name: "quoc"}));
 
         app.listen(port, () => {

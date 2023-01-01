@@ -46,6 +46,13 @@ routerAPI.delete('/customers-array', deleteArrayCustomerAPI);
 
 routerAPI.post('/projects', postCreateProject);
 
+routerAPI.post('/create-test', (req, res) => {
+    console.log(">> check query");
+    return res.status(200).json({
+        data: "test"
+    })
+});
+
 routerAPI.get('/info', (req, res) => {
     console.log(">> check query", req.query);
     return res.status(200).json({
