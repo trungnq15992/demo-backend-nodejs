@@ -1,0 +1,22 @@
+
+
+1. DBeaver
+Download: https://dbeaver.io/download/
+DBeaver (bản Community Free) giúp kết nối tới các hệ cơ sở dữ liệu, all-in-one
+
+2. Kết nối database
+- Tạo database MySQL với docker
+B1: Đảm bảo rằng máy tính đã chạy docker (với Windows, MacOs thì chạy sẵn Docker
+Desktop)
+
+B2: Tạo database với Docker Compose
+- Đảm bảo rằng, ví dụ ổ C của máy tính, còn đủ tài nguyên (dung lượng) để lưu trữ.
+Download file cài đặt:
+https://drive.google.com/file/d/1DfSjZTM8RYXbKCde5gRg_HYl3YJWNtGa/view?usp=share_link
+
+Chạy câu lệnh:
+docker compose -f mysql.yml -p nodejs-sql up -d
+
+-f: file name
+-p: project name
+-d : detach, run as background
