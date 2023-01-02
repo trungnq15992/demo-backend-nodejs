@@ -2,9 +2,13 @@
 
 Udemy tutorial Backend NodeJS
 
-- git clone https://github.com/trungnq15992/udemy-backend-nodejs.git
+Document
+https://drive.google.com/file/d/1cEDAoauHFpVfHRoMMztj-fy5INkqnzrp/view?fbclid=IwAR3HGbm6iPlzEfmjd3UNDDb4pumpgIQbrnLMzdmE0qd4Vlhsoap0LPVmQII
+
+- git clone https://github.com/trungnq15992/demo-backend-nodejs.git
 - git checkout master
 - git pull origin master
+
 
 Cài đặt nodejs
 Download version v14.17.0 (recommend) : https://nodejs.org/download/release/v14.17.0/
