@@ -1,44 +1,56 @@
 # udemy-backend-nodejs
-Udemy tutorial Backend NodeJS 
-- git clone https://github.com/trungnq15992/demo-backend-nodejs.git
+
+Udemy tutorial Backend NodeJS
+
+- git clone https://github.com/trungnq15992/udemy-backend-nodejs.git
 - git checkout master
 - git pull origin master
 
-Cài đặt nodejs 
+Cài đặt nodejs
 Download version v14.17.0 (recommend) : https://nodejs.org/download/release/v14.17.0/
 Kiểm tra kết quả bằng cách sử dụng câu lệnh:
 node -v
 npm -v
 
-Khởi tạo package.json
-npm init
+Khởi tạo package.json npm init
 
-Cài đặt express
+Cài đặt express 
 npm i --save-exact express@4.18.2
 
-Cài đặt EJS
+Cài đặt EJS 
 npm install --save-exact ejs@3.1.8
 
-Cài đặt package dotenv
+Cài đặt package dotenv 
 npm install --save-exact dotenv@16.0.3
 
-Cài đặt devtool
+Cài đặt devtool 
 npm install --save-dev nodemon@2.0.20
 
-Sử dụng mysql với nodejs
+Sử dụng mysql với nodejs 
 npm install --save-exact mysql2@2.3.3
 
-Bộ thư viện cần tải:
-"dotenv": "16.0.3",
-"ejs": "3.1.8",
-"express": "4.18.2",
-"express-fileupload": "1.4.0",
-"mongodb": "4.13.0",
-"mongoose": "6.7.2",
-"mongoose-delete": "0.5.4",
-"mysql2": "2.3.3"
+npm install --save-exact mongoose@6.7.2
+
+npm install mongoose-delete
+
+npm i express-fileupload
+
+npm install mongodb
+
 
 Thay port nếu bị trùng trong file .evn
 
 Run project
 npm run start
+
+mongod --version
+
+MongoDB : create user and password
+use admin
+db.createUser(
+{
+user: "root1",
+pwd: "root1", // or cleartext password
+roles: []
+}
+)
