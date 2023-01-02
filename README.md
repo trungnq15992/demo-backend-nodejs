@@ -10,6 +10,9 @@ Kiểm tra kết quả bằng cách sử dụng câu lệnh:
 node -v
 npm -v
 
+Khởi tạo package.json
+npm init
+
 Cài đặt express
 npm i --save-exact express@4.18.2
 
