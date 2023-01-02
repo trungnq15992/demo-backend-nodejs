@@ -12,8 +12,31 @@ Kiểm tra kết quả bằng cách sử dụng câu lệnh:
 node -v
 npm -v
 
-Cài đặt express
+Khởi tạo package.json npm init
+
+Cài đặt express 
 npm i --save-exact express@4.18.2
+
+Cài đặt EJS 
+npm install --save-exact ejs@3.1.8
+
+Cài đặt package dotenv 
+npm install --save-exact dotenv@16.0.3
+
+Cài đặt devtool 
+npm install --save-dev nodemon@2.0.20
+
+Sử dụng mysql với nodejs 
+npm install --save-exact mysql2@2.3.3
+
+npm install --save-exact mongoose@6.7.2
+
+npm install mongoose-delete
+
+npm i express-fileupload
+
+npm install mongodb
+
 
 Thay port nếu bị trùng trong file .evn
 
